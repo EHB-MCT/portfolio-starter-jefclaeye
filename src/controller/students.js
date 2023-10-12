@@ -5,6 +5,7 @@ const createStudent = async(studentData) => {
     return await knex('students').insert(studentData);
 };
 
+
 // Retrieve all students
 const getAllStudents = async() => {
     return await knex('students').select('*');

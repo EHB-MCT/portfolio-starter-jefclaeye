@@ -11,3 +11,5 @@ app.use('/api/students', studentsRoutes);
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+
+console.log("test f");
