@@ -13,7 +13,6 @@ router.post('/', async(req, res) => {
     }
 });
 
-
 // Retrieve all students
 router.get('/', async(req, res) => {
     try {
