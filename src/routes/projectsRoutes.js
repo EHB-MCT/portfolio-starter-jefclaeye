@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const projects = require('./projects'); // Import your CRUD operations for projects
+const projects = require('./../controller/projects'); // Import your CRUD operations for projects
 
 // Create a new project
 router.post('/', async(req, res) => {

@@ -1,4 +1,4 @@
-const knex = require('knex')(require('./knexfile')['development']);
+const knex = require('knex')(require('../../knexfile')['development']);
 
 // Create a new project
 const createProject = async(projectData) => {
