@@ -7,7 +7,7 @@ const projectsRoutes = require('./routes/projectsRoutes'); // Import your route 
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.send({ message: "hello" })
+    res.send({ message: "test" })
 })
 
 // Use the studentsRoutes module for the "/api/students" endpoint
