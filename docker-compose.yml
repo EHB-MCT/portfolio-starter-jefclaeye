@@ -1,9 +1,6 @@
 version: "3.2"
 
 services:
-  
-    
-
   api:
     build: ./images/api
     container_name: api
@@ -12,9 +9,13 @@ services:
     volumes:
       - ./images/api/src:/usr/app/src
     environment:
-      PG_CONNECTION_STRING: "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@store:5432/${POSTGRES_DB}"
+      PG_CONNECTION_STRING: "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}"
+    depends_on:
+      db:
+        condition: service_healthy
 
-  store:
+
+  db:
     image: postgres:latest
     ports:
       - 5432:5432
@@ -24,4 +25,9 @@ services:
       POSTGRES_DB:
       POSTGRES_HOST_AUTH_METHOD:  
     volumes:
-    - ./_backup:/var/lib/postgresql/data        
+      - ./_backup:/var/lib/postgresql/data        
+    healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER -d $POSTGRES_DB "]
+        interval: 5s
+        timeout: 5s
+        retries: 10
