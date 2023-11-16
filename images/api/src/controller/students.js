@@ -1,8 +1,8 @@
-const knex = require('knex')(require('../../knexfile')['development']);
+const knex = require('knex')(require('../db/knexfile')['development']);
 
 // Create a new student
 const createStudent = async(studentData) => {
-    return await knex('students').insert(studentData);
+    return await knex('students').insert(studentData).returning("*");
 };
 
 
