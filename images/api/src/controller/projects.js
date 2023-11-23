@@ -3,7 +3,7 @@ const checkProjectFields = require('./../helpers/checkProjectFields');
 
 // Create a new project
 const createProject = async(projectData) => {
-    if (checkProjectFields(projectData)) {
+    if (checkProjectFields(projectData.name)) {
         return await knex('projects').insert(projectData);
     } else {
         return false
