@@ -1,8 +1,13 @@
 const knex = require('knex')(require('../db/knexfile')['development']);
+const checkProjectFields = require('./../helpers/checkProjectFields');
 
 // Create a new project
 const createProject = async(projectData) => {
-    return await knex('projects').insert(projectData);
+    if (checkProjectFields(projectData)) {
+        return await knex('projects').insert(projectData);
+    } else {
+        return false
+    }
 };
 
 // Retrieve all projects

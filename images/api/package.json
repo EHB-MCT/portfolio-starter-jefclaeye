@@ -6,7 +6,8 @@
     "scripts": {
         "migrate": "npx knex migrate:latest --cwd src/db",
         "start": "npm run migrate && nodemon src/index.js --legacy-watch",
-        "test": "jest"
+        "test-dev": "npm run migrate && jest --detectOpenHandles --watchAll",
+        "test": "jest --detectOpenHandles --forceExit"
     },
     "author": "",
     "license": "ISC",

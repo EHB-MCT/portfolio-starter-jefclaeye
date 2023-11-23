@@ -1,0 +1,10 @@
+function checkProjectFields(project) {
+
+
+    if (project.name || project.date) {
+        return true;
+    } else { return false; }
+
+}
+
+module.exports = checkProjectFields;
