@@ -1,8 +1,8 @@
-name: onPushDev
+name: testPullReq
 
 on:
-  push:
-    branches: [ develop ] 
+  pull-request:
+    branches: [ main , develop ] 
 
 env: 
   POSTGRES_USER: test
