@@ -13,19 +13,20 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    command: ["npm", "run", "start"]
+    command: ["npm", "run", "migrate"]
+
 
   db:
     image: postgres:latest
     ports:
       - 5432:5432
     environment:
-      POSTGRES_USER:
-      POSTGRES_PASSWORD:
-      POSTGRES_DB:
-      POSTGRES_HOST_AUTH_METHOD:  
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: test
+      POSTGRES_HOST_AUTH_METHOD:  db
     volumes:
-      - ./_backup:/var/lib/postgresql/data        
+      - ./_backup:/vartest/lib/postgresql/data        
     healthcheck:
         test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER -d $POSTGRES_DB "]
         interval: 5s
