@@ -1,4 +1,5 @@
 const knex = require('knex')(require('../db/knexfile')['development']);
+const checkStudentFields = require('./../helpers/checkStudentFields');
 
 /**
  * Create a new student in the database.
@@ -6,7 +7,11 @@ const knex = require('knex')(require('../db/knexfile')['development']);
  * @returns {Promise<Array>} - Returns an array containing the inserted student data.
  */
 const createStudent = async(studentData) => {
-    return await knex('students').insert(studentData).returning("*");
+    if (checkStudentFields(studentData.name)) {
+        return await knex('students').insert(studentData).returning("*");
+    } else {
+        return false;
+    }
 };
 
 /**
