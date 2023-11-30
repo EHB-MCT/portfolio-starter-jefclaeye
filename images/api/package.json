@@ -4,10 +4,13 @@
     "description": "",
     "main": "src/index.js",
     "scripts": {
-        "migrate": "npx knex migrate:latest --cwd src/db",
+        "migrate": "npx knex migrate:latest --cwd src/db && npx knex seed:run --cwd src/db",
+        "test-watch": "jest --detectOpenHandles --watchAll",
         "start": "npm run migrate && nodemon src/index.js --legacy-watch",
-        "test-dev": "npm run migrate && jest --detectOpenHandles --watchAll",
-        "test": "jest --detectOpenHandles --forceExit"
+        "test": "npm run migrate && jest --detectOpenHandles --forceExit",
+        "dev": "npm run migrate && npm run test-watch"
+
+
     },
     "author": "",
     "license": "ISC",
