@@ -4,6 +4,9 @@ const projects = require('./../controller/projects'); // Import your CRUD operat
 
 // Create a new project
 router.post('/', async(req, res) => {
+    if (!req.body.name || !req.body.date || !req.body.info) {
+        return res.status(500).json({ error: 'Failed to create project. Missing field' });
+    }
     try {
         const project = await projects.createProject(req.body);
         res.status(200).json(project);

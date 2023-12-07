@@ -45,7 +45,6 @@ describe('POST /projects', () => {
 
     test('should return an error if project creation fails', async() => {
         const invalidProjectData = {
-            name: "",
             date: Date.now(),
             info: 'Invalid Project Data',
         };
@@ -53,8 +52,8 @@ describe('POST /projects', () => {
         const response = await request(app)
             .post('/projects')
             .send(invalidProjectData)
-            .expect(500);
+            .expect(500); // Expecting a failure status code (500 Internal Server Error)
 
-        expect(response.body).toEqual({ error: 'Failed to create project.' });
+        expect(response.body).toEqual({ error: 'Failed to create project. Missing field' });
     });
 });
