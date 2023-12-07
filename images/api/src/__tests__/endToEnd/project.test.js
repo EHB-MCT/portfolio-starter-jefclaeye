@@ -23,7 +23,7 @@ describe('Project routes', () => {
         const mockProject = {
             id: 1,
             name: 'Project 1',
-            date: '2023-11-23',
+            date: Date.now(),
             info: 'Information about Project 1',
         };
         projects.createProject.mockResolvedValue(mockProject);
@@ -32,7 +32,7 @@ describe('Project routes', () => {
             .post('/')
             .send(mockProject);
 
-        expect(response.status).toBe(201);
+        expect(response.status).toBe(200);
         expect(response.body).toEqual(mockProject);
     });
 

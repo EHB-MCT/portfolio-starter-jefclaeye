@@ -6,7 +6,7 @@ const projects = require('./../controller/projects'); // Import your CRUD operat
 router.post('/', async(req, res) => {
     try {
         const project = await projects.createProject(req.body);
-        res.status(201).json(project);
+        res.status(200).json(project);
     } catch (error) {
         console.error('Error creating project:', error);
         res.status(500).json({ error: 'Failed to create project.' });

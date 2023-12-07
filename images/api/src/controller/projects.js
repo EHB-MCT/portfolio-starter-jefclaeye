@@ -8,7 +8,8 @@ const checkProjectFields = require('./../helpers/checkProjectFields');
  */
 const createProject = async(projectData) => {
     if (checkProjectFields(projectData.name)) {
-        return await knex('projects').insert(projectData);
+        const res = await knex('projects').insert(projectData).returning("*");
+        return res
     } else {
         return false;
     }
