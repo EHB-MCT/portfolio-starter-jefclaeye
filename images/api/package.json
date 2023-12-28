@@ -6,7 +6,7 @@
     "scripts": {
         "migrate": "npx knex migrate:latest --cwd src/db && npx knex seed:run --cwd src/db",
         "test-watch": "jest --detectOpenHandles --watchAll",
-        "start": "npm run migrate && nodemon src/index.js --legacy-watch",
+        "start": "npm run migrate && node src/index.js",
         "test": "npm run migrate && jest --detectOpenHandles --forceExit",
         "dev": "npm run migrate && npm run test-watch"
 
