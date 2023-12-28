@@ -41,7 +41,7 @@ docker-compose up --build
 # Endpoints Projects
 
 
-## Create a Project
+## POST Create a Project
 
 - **Description:** Creates a new project.
 - **Request Body:**
@@ -49,24 +49,24 @@ docker-compose up --build
   - `date` (string): Date of the project.
   - `info` (string): Additional information about the project.
 
-## Retrieve All Projects
+## GET/api/students Retrieve All Projects
 
 - **Description:** Retrieves all projects.
 
-## Retrieve a Project by ID
+## GET/api/students/:id Retrieve a Project by ID
 
 - **Description:** Retrieves a project by its unique ID.
 - **Request Parameter:**
   - `id` (string): Unique identifier of the project.
 
-## Update a Project by ID
+## PATCH/api/students/:id Update a Project by ID
 
 - **Description:** Updates a project by its unique ID.
 - **Request Parameter:**
   - `id` (string): Unique identifier of the project.
 - **Request Body:** Contains the fields to update in the project.
 
-## Delete a Project by ID
+## DELETE/api/students/:id Delete a Project by ID
 
 - **Description:** Deletes a project by its unique ID.
 - **Request Parameter:**
@@ -75,7 +75,7 @@ docker-compose up --build
 
 # Endpoints Students
 
-### Create a Student
+### POST/api/projects Create a Student
 
 - **Description:** Creates a new student.
 - **Request Body:**
@@ -85,24 +85,24 @@ docker-compose up --build
   - `email` (string): Email of the student
 
 
-### Retrieve All Students
+### GET/api/projects Retrieve All Students
 
 - **Description:** Retrieves all students.
 
-### Retrieve a Student by ID
+### GET/api/projects/:id Retrieve a Student by ID
 
 - **Description:** Retrieves a student by their unique ID.
 - **Request Parameter:**
   - `id` (string): Unique identifier of the student.
 
-### Update a Student by ID
+### PATCH/api/projects/:id Update a Student by ID
 
 - **Description:** Updates a student by their unique ID.
 - **Request Parameter:**
   - `id` (string): Unique identifier of the student.
 - **Request Body:** Contains the fields to update in the student.
 
-### Delete a Student by ID
+### DELETE/api/projects Delete a Student by ID
 
 - **Description:** Deletes a student by their unique ID.
 - **Request Parameter:**
