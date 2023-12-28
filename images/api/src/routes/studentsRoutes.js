@@ -5,13 +5,19 @@ const students = require('../controller/students'); // Import your CRUD operatio
 // Create a new student
 router.post('/', async(req, res) => {
     try {
+        // Validate student data here
+        if (!req.body.first_name || !req.body.last_name || !req.body.age || !req.body.email) {
+            return res.status(400).json({ error: 'Invalid student data.' });
+        }
+
         const student = await students.createStudent(req.body);
-        res.status(201).json(student);
+        res.status(200).json(student);
     } catch (error) {
         console.error('Error creating student:', error);
         res.status(500).json({ error: 'Failed to create student.' });
     }
 });
+
 
 
 

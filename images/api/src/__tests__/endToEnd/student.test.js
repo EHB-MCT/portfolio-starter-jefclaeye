@@ -33,7 +33,7 @@ describe('Student routes', () => {
             .post('/')
             .send(mockStudent);
 
-        expect(response.status).toBe(201);
+        expect(response.status).toBe(200);
         expect(response.body).toEqual(mockStudent);
     });
 
