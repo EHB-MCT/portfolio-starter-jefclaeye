@@ -6,8 +6,6 @@ Here you will find information on the development, endpoints and use of this pro
 
 This project is application written in JavaScript with an Express.js server and a MySQL database.
 
-The Birthday API is designed to help users remember the birthdays of their friends and loved ones. Users can view upcoming birthdays and leave comments for each person to make their day extra special.
-
 ## Getting Started
 
 To get started with the project, follow these steps:
