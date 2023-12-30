@@ -1,5 +1,5 @@
 const knex = require('knex')(require('../db/knexfile')['development']);
-const checkProjectFields = require('./../helpers/checkProjectFields');
+const { checkProjectName, checkProjectInfo } = require('./../helpers/checkProjectFields');
 
 /**
  * Create a new project in the database.
@@ -7,7 +7,7 @@ const checkProjectFields = require('./../helpers/checkProjectFields');
  * @returns {Promise<Boolean|Array>} - Returns false if projectData is invalid, otherwise returns an array with the inserted IDs.
  */
 const createProject = async(projectData) => {
-    if (checkProjectFields(projectData.name)) {
+    if (checkProjectName(projectData.name)) {
         const res = await knex('projects').insert(projectData).returning("*");
         return res
     } else {

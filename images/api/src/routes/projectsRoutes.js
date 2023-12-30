@@ -2,19 +2,19 @@ const express = require('express');
 const router = express.Router();
 const projects = require('./../controller/projects'); // Import your CRUD operations for projects
 
-// Create a new project
 router.post('/', async(req, res) => {
     if (!req.body.name || !req.body.date || !req.body.info) {
-        return res.status(500).json({ error: 'Failed to create project. Missing field' });
+        return res.status(400).json({ error: 'Failed to create project. Missing field(s)' });
     }
     try {
         const project = await projects.createProject(req.body);
         res.status(200).json(project);
     } catch (error) {
-        console.error('Error creating project:', error);
-        res.status(500).json({ error: 'Failed to create project.' });
+        console.error('Error creating project:', error); // Log the error for debugging
+        res.status(500).json({ error: 'Failed to create project. Server error occurred.' });
     }
 });
+
 
 
 
