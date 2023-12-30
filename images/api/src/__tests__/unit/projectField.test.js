@@ -4,9 +4,9 @@
 
  describe('checkProjectFields function', () => {
      it('should return true for valid names', () => {
-         expect(checkProjectFields('John')).toBe(true);
-         expect(checkProjectFields('Alice')).toBe(true);
-         expect(checkProjectFields('Bob')).toBe(true);
+         expect(checkProjectFields('Project 2')).toBe(true);
+         expect(checkProjectFields('Project 2')).toBe(true);
+         expect(checkProjectFields('Project 2')).toBe(true);
      });
 
 

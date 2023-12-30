@@ -12,8 +12,8 @@
 
 
      it('should return false for invalid names', () => {
-         expect(checkStudentFields(123)).toBe(false); // Numbers in name
-         expect(checkStudentFields('Ab')).toBe(false); // Name too short
+         expect(checkStudentFields(123)).toBe(false);
+         expect(checkStudentFields('Ab')).toBe(false);
          expect(checkStudentFields(undefined)).toBe(false);
          expect(checkStudentFields(null)).toBe(false);
      });
