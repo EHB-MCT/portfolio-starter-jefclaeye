@@ -31,13 +31,13 @@ router.get('/', async(req, res) => {
 
 // Retrieve a project by ID
 router.get('/:id', async(req, res) => {
-    const projectId = req.params.id;
     try {
+        const projectId = req.params.id;
         const project = await projects.getProjectById(projectId);
         if (!project) {
             return res.status(404).json({ error: 'Project not found.' });
         }
-        res.json(project);
+        res.status(200).json(project);
     } catch (error) {
         console.error('Error retrieving project:', error);
         res.status(500).json({ error: 'Failed to retrieve project.' });
