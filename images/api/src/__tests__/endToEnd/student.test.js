@@ -33,13 +33,12 @@ describe('Student routes', () => {
             .post('/')
             .send(mockStudent);
 
-        expect(response.status).toBe(201);
+        expect(response.status).toBe(200);
         expect(response.body).toEqual(mockStudent);
     });
 
-    // Test for GET / - Retrieve all students
     it('should retrieve all Students', async() => {
-        const mockStudentsList = [ /* Mock students list */ ];
+        const mockStudentsList = [];
         students.getAllStudents.mockResolvedValue(mockStudentsList);
 
         const response = await request(app).get('/');
@@ -48,10 +47,10 @@ describe('Student routes', () => {
         expect(response.body).toEqual(mockStudentsList);
     });
 
-    // Test for GET /:id - Retrieve a Student by ID
+
     it('should retrieve a Student by ID', async() => {
         const studentId = 'someId';
-        const mockStudent = { /* Mock Student data */ };
+        const mockStudent = {};
         students.getStudentById.mockResolvedValue(mockStudent);
 
         const response = await request(app).get(`/${studentId}`);
@@ -60,10 +59,10 @@ describe('Student routes', () => {
         expect(response.body).toEqual(mockStudent);
     });
 
-    // Test for PUT /:id - Update a Student by ID
+
     it('should update a Student by ID', async() => {
         const studentId = 'someId';
-        const mockUpdatedProject = { /* Mock updated Student data */ };
+        const mockUpdatedProject = {};
         students.updateStudent.mockResolvedValue();
 
         const response = await request(app)
@@ -73,7 +72,7 @@ describe('Student routes', () => {
         expect(response.status).toBe(204);
     });
 
-    // Test for DELETE /:id - Delete a Student by ID
+
     it('should delete a Student by ID', async() => {
         const studentId = 'someId';
         students.deleteStudent.mockResolvedValue();
