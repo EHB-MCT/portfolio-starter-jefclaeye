@@ -6,8 +6,6 @@ Here you will find information on the development, endpoints and use of this pro
 
 This project is application written in JavaScript with an Express.js server and a MySQL database.
 
-The Birthday API is designed to help users remember the birthdays of their friends and loved ones. Users can view upcoming birthdays and leave comments for each person to make their day extra special.
-
 ## Getting Started
 
 To get started with the project, follow these steps:
@@ -41,7 +39,7 @@ docker-compose up --build
 # Endpoints Projects
 
 
-## POST Create a Project
+## POST 
 
 - **Description:** Creates a new project.
 - **Request Body:**
@@ -49,24 +47,24 @@ docker-compose up --build
   - `date` (string): Date of the project.
   - `info` (string): Additional information about the project.
 
-## GET/api/students Retrieve All Projects
+## GET/api/students 
 
 - **Description:** Retrieves all projects.
 
-## GET/api/students/:id Retrieve a Project by ID
+## GET/api/students/:id 
 
 - **Description:** Retrieves a project by its unique ID.
 - **Request Parameter:**
   - `id` (string): Unique identifier of the project.
 
-## PATCH/api/students/:id Update a Project by ID
+## PATCH/api/students/:id 
 
 - **Description:** Updates a project by its unique ID.
 - **Request Parameter:**
   - `id` (string): Unique identifier of the project.
 - **Request Body:** Contains the fields to update in the project.
 
-## DELETE/api/students/:id Delete a Project by ID
+## DELETE/api/students/:id 
 
 - **Description:** Deletes a project by its unique ID.
 - **Request Parameter:**
@@ -75,7 +73,7 @@ docker-compose up --build
 
 # Endpoints Students
 
-### POST/api/projects Create a Student
+### POST/api/projects 
 
 - **Description:** Creates a new student.
 - **Request Body:**
@@ -85,24 +83,24 @@ docker-compose up --build
   - `email` (string): Email of the student
 
 
-### GET/api/projects Retrieve All Students
+### GET/api/projects
 
 - **Description:** Retrieves all students.
 
-### GET/api/projects/:id Retrieve a Student by ID
+### GET/api/projects/:id
 
 - **Description:** Retrieves a student by their unique ID.
 - **Request Parameter:**
   - `id` (string): Unique identifier of the student.
 
-### PATCH/api/projects/:id Update a Student by ID
+### PATCH/api/projects/:id
 
 - **Description:** Updates a student by their unique ID.
 - **Request Parameter:**
   - `id` (string): Unique identifier of the student.
 - **Request Body:** Contains the fields to update in the student.
 
-### DELETE/api/projects Delete a Student by ID
+### DELETE/api/projects
 
 - **Description:** Deletes a student by their unique ID.
 - **Request Parameter:**

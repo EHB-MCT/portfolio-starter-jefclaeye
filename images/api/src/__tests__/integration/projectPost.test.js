@@ -52,8 +52,8 @@ describe('POST /projects', () => {
         const response = await request(app)
             .post('/projects')
             .send(invalidProjectData)
-            .expect(500); // Expecting a failure status code (500 Internal Server Error)
+            .expect(400); // Expecting a failure status code (500 Internal Server Error)
 
-        expect(response.body).toEqual({ error: 'Failed to create project. Missing field' });
+        expect(response.body).toEqual({ error: 'Failed to create project. Missing field(s)' });
     });
 });
