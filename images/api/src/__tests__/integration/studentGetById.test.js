@@ -1,6 +1,7 @@
 const request = require('supertest');
 const express = require('express');
 
+let server;
 
 const students = {
     getStudentById: async(id) => {
@@ -24,7 +25,6 @@ const students = {
     }
 };
 
-
 const app = express();
 app.get('/students/:id', async(req, res) => {
     try {
@@ -39,10 +39,17 @@ app.get('/students/:id', async(req, res) => {
     }
 });
 
+beforeAll(() => {
+    server = app.listen(4000); // Start the Express server on port 4000 before running tests
+});
+
+afterAll((done) => {
+    server.close(done); // Close the server after all tests are done
+});
+
 describe('GET /students/:id', () => {
     test('should retrieve a student by ID', async() => {
         const studentId = '1';
-
         const response = await request(app)
             .get(`/students/${studentId}`)
             .expect(200);
@@ -52,7 +59,6 @@ describe('GET /students/:id', () => {
 
     test('should return a 404 error for non-existing student', async() => {
         const studentId = '999';
-
         const response = await request(app)
             .get(`/students/${studentId}`)
             .expect(404);
@@ -61,13 +67,11 @@ describe('GET /students/:id', () => {
     });
 
     test('should handle server error during student retrieval', async() => {
-
         students.getStudentById = async() => {
             throw new Error('Some server error');
         };
 
         const studentId = '1';
-
         const response = await request(app)
             .get(`/students/${studentId}`)
             .expect(500);
